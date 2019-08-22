@@ -12,7 +12,7 @@ public class AppController {
 
     @RequestMapping("/release")
     Release release() {
-        return new Release("@fservice",  "1.0");
+        return new Release("@fservice",  "2.0");
     }
     @RequestMapping("/dependency-release")
     Release dependencyRelease() {
