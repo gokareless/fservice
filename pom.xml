@@ -95,4 +95,12 @@
     </plugins>
   </build>
 
+  <distributionManagement>
+    <repository>
+      <id>central</id>
+      <name>jfrog-artifactory-releases</name>
+      <url>https://artifactory.common.wellsmith.io/artifactory/libs-release</url>
+    </repository>
+  </distributionManagement>
+
 </project>
