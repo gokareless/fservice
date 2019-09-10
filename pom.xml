@@ -74,7 +74,7 @@
         <executions>
           <execution>
             <id>push-container-image</id>
-            <phase>deploy</phase>
+            <phase>install</phase>
             <goals>
               <goal>build</goal>
               <goal>tag</goal>
@@ -94,13 +94,5 @@
       </plugin>
     </plugins>
   </build>
-
-  <distributionManagement>
-    <repository>
-      <id>central</id>
-      <name>jfrog-artifactory-releases</name>
-      <url>https://artifactory.common.wellsmith.io/artifactory/libs-release</url>
-    </repository>
-  </distributionManagement>
 
 </project>
