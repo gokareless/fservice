@@ -13,6 +13,8 @@
   <properties>
     <java.version>1.8</java.version>
     <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+    <dockerfile.maven.version>1.4.10</dockerfile.maven.version>
+    <docker.image.repository>us.gcr.io/devops-247019</docker.image.repository>
   </properties>
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -64,6 +66,31 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>dockerfile-maven-plugin</artifactId>
+        <version>${dockerfile.maven.version}</version>
+        <executions>
+          <execution>
+            <id>push-container-image</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>build</goal>
+              <goal>tag</goal>
+              <goal>push</goal>
+            </goals>
+            <configuration>
+              <tag>${project.version}</tag>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <repository>${docker.image.repository}/${project.artifactId}</repository>
+          <buildArgs>
+            <JAR_FILE>target/${project.name}.jar</JAR_FILE>
+          </buildArgs>
+        </configuration>
       </plugin>
     </plugins>
   </build>
