@@ -63,6 +63,9 @@
             <goals>
               <goal>repackage</goal>
             </goals>
+            <configuration>
+              <finalName>${project.name}</finalName>
+            </configuration>
           </execution>
         </executions>
       </plugin>
