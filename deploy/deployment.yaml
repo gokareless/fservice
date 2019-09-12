@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fservice
+  labels:
+    app.kubernetes.io/name: fservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: fservice
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: fservice
+    spec:
+      containers:
+        - name: fservice
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8082
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /release
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /release
+              port: http
+          resources:
+            {}
