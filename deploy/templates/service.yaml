@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: fservice
+  name: {{ .Values.name }}
   labels:
-    app.kubernetes.io/name: fservice
+    app.kubernetes.io/name: {{ .Values.name }}
 spec:
   type: ClusterIP
   ports:
     - port: 80
       targetPort: http
       protocol: TCP
-      name: fservice
+      name: {{ .Values.name }}
   selector:
-    app.kubernetes.io/name: fservice
+    app.kubernetes.io/name: {{ .Values.name }}

@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fservice
+  name: {{ .Values.name }}
   labels:
-    app.kubernetes.io/name: fservice
+    app.kubernetes.io/name: {{ .Values.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: fservice
+      app.kubernetes.io/name: {{ .Values.name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: fservice
+        app.kubernetes.io/name: {{ .Values.name }}
     spec:
       containers:
         - name: fservice
@@ -20,7 +20,7 @@ spec:
           imagePullPolicy: Always
           ports:
             - name: http
-              containerPort: 8082
+              containerPort: {{ .Values.port }}
               protocol: TCP
           livenessProbe:
             httpGet:
