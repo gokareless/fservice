@@ -1,5 +1,0 @@
-name: fservice
-port: 8082
-image:
-  repository: gcr.io/devops-247019/fservice
-  tag: latest
