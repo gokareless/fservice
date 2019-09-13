@@ -3,10 +3,6 @@ server:
 spring:
   application:
     name: fservice
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka/}
 management:
   endpoint:
     metrics:
