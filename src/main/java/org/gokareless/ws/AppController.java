@@ -7,17 +7,10 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class AppController {
-    @Autowired
-    RestTemplate restTemplate;
 
     @RequestMapping("/release")
     Release release() {
         return new Release("@fservice",  "2.0");
-    }
-    @RequestMapping("/dependency-release")
-    Release dependencyRelease() {
-        Release release = restTemplate.getForObject("http://sservice/release", Release.class);
-        return release;
     }
 
     static class Release {

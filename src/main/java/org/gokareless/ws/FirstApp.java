@@ -8,18 +8,11 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-@EnableDiscoveryClient
 @SpringBootApplication
 public class FirstApp {
 
     public static void main(String[] args) {
         SpringApplication.run(FirstApp.class, args);
-    }
-
-    @Bean
-    @LoadBalanced
-    RestTemplate restTemplate() {
-        return new RestTemplate();
     }
 
 }
