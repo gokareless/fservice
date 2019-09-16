@@ -45,10 +45,12 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
         <executions>
           <execution>
+            <id>default</id>
             <goals>
               <goal>repackage</goal>
             </goals>
             <configuration>
+              <mainClass>org.gokareless.ws.FirstApp</mainClass>
               <finalName>${project.name}</finalName>
             </configuration>
           </execution>
