@@ -19,7 +19,6 @@ public class AppController {
     public Release() {
     }
 
-    ;
 
     public Release(String name, String version) {
       this.name = name;
